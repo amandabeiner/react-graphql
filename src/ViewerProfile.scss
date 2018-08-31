@@ -1,0 +1,38 @@
+.viewer-profile {
+  font-family: Lato, sans-serif;
+  
+  .viewer-name {
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  .viewer-avatar {
+    max-height: 10rem;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .section-heading {
+      flex-basis: 100%;
+    }
+    
+    .tile {
+      border: 1px solid black;
+      border-radius: 4px;
+      flex-basis: 43%;
+      margin: 1%;
+      padding: 2%;
+    }
+  }
+  
+  .org-avatar {
+    max-height: 10rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

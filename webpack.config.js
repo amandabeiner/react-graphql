@@ -1,5 +1,6 @@
 const path = require("path")
 const webpack = require("webpack")
+const Dotenv = require("dotenv-webpack")
 
 module.exports = {
   entry: "./src/index.js",
@@ -13,8 +14,8 @@ module.exports = {
         options: { presets: ['env'] }
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
@@ -31,5 +32,5 @@ module.exports = {
       publicPath: "http://localhost:3000/dist/",
       hotOnly: true
     },
-    plugins: [ new webpack.HotModuleReplacementPlugin() ]
+    plugins: [ new webpack.HotModuleReplacementPlugin(), new Dotenv() ]
 }

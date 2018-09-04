@@ -1,0 +1,47 @@
+.viewer-profile {
+  font-family: Lato, sans-serif;
+  margin: 2%;
+  
+  .viewer-name {
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  .viewer-avatar {
+    max-height: 10rem;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .section-heading {
+      flex-basis: 100%;
+    }
+    
+    .org-tile {
+      border: 1px solid black;
+      border-radius: 4px;
+      flex-basis: 43%;
+      margin: 1%;
+      padding: 2%;
+    }
+  }
+
+  .repo-tile {
+    flex-basis: 27%;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 0.5%;
+    padding: 2%;
+  }
+  
+  .org-avatar {
+    max-height: 10rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

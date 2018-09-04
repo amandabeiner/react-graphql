@@ -14,6 +14,9 @@ const FETCH_VIEWER = `
           avatarUrl
           name
           url
+          members {
+            totalCount
+          }
         }
       }
       repositories(first: 6) {
@@ -22,6 +25,7 @@ const FETCH_VIEWER = `
           url
           primaryLanguage {
             name
+            color
           }
         }
       }
@@ -65,20 +69,26 @@ class ViewerProfile extends Component {
         <div className="flex-container">
           <h2 className="section-heading">{`${viewer.name}'s organizations`}</h2>
           {organizations.map(o => (
-            <div className="tile">
+            <div className="org-tile">
               <img className="org-avatar" src={o.avatarUrl} />
               <h3><a href={o.url}>{o.name}</a></h3>
+              <p>{o.members.totalCount} members</p>
             </div>
           ))}
         </div>
         <div>
           <h2>{`${viewer.name}'s repos`}</h2>
-          {repositories.map(r => (
-            <div>
-              <h3><a href={r.url}>{r.name}</a></h3>
-              <p>{r.primaryLanguage.name}</p>
-            </div>
-          ))}
+          <div className="flex-container">
+            {repositories.map(r => (
+              <div className="repo-tile">
+                <h3><a href={r.url}>{r.name}</a></h3>
+                <p>
+                  <i className="fa fa-circle" style={{ color: `${r.primaryLanguage.color}`}} /> &nbsp;
+                  {r.primaryLanguage.name}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     )

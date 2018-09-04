@@ -1,5 +1,6 @@
 .viewer-profile {
   font-family: Lato, sans-serif;
+  margin: 2%;
   
   .viewer-name {
     text-decoration: none;
@@ -19,13 +20,21 @@
       flex-basis: 100%;
     }
     
-    .tile {
+    .org-tile {
       border: 1px solid black;
       border-radius: 4px;
       flex-basis: 43%;
       margin: 1%;
       padding: 2%;
     }
+  }
+
+  .repo-tile {
+    flex-basis: 27%;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 0.5%;
+    padding: 2%;
   }
   
   .org-avatar {

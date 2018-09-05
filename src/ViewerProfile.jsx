@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import Api from './Api'
-import ViwerProfile from './ViewerProfile.scss'
+
+import styles from './styles.scss'
 
 const FETCH_VIEWER = `
-  {
+  query findViewer {
     viewer {
       name
       avatarUrl
@@ -14,6 +16,7 @@ const FETCH_VIEWER = `
           avatarUrl
           name
           url
+          login
           members {
             totalCount
           }
@@ -64,15 +67,19 @@ class ViewerProfile extends Component {
       <div className="viewer-profile">
         <div>
           <a className="viewer-name" href={viewer.url}><h1>{viewer.name}</h1></a>
-          <img className="viewer-avatar" src={viewer.avatarUrl} />
+          <img className="avatar" src={viewer.avatarUrl} />
         </div>
         <div className="flex-container">
           <h2 className="section-heading">{`${viewer.name}'s organizations`}</h2>
           {organizations.map(o => (
-            <div className="org-tile">
-              <img className="org-avatar" src={o.avatarUrl} />
+            <div className="tile org-tile">
+              <img className="avatar" src={o.avatarUrl} />
               <h3><a href={o.url}>{o.name}</a></h3>
-              <p>{o.members.totalCount} members</p>
+              <p>
+                <Link to={`/organizations/${o.login}`}>
+                  View {o.members.totalCount} members
+                </Link>
+              </p>
             </div>
           ))}
         </div>
@@ -80,7 +87,7 @@ class ViewerProfile extends Component {
           <h2>{`${viewer.name}'s repos`}</h2>
           <div className="flex-container">
             {repositories.map(r => (
-              <div className="repo-tile">
+              <div className="tile repo-tile">
                 <h3><a href={r.url}>{r.name}</a></h3>
                 <p>
                   <i className="fa fa-circle" style={{ color: `${r.primaryLanguage.color}`}} /> &nbsp;

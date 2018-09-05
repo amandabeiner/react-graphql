@@ -1,0 +1,61 @@
+.app {
+  // GLOBAL styles
+  font-family: Lato, sans-serif;
+  margin: 2%;
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .section-heading {
+      flex-basis: 100%;
+    }
+  }
+
+  .tile {
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 1%;
+    padding: 2%;
+  }
+
+  .avatar {
+    max-height: 10rem;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+
+  .btn {
+    padding: 1%;
+    background-color: #66b2b2;
+    color: white;
+    font-size: 1rem;
+    margin: auto;
+    display: block;
+    margin-top: 2%;
+  }
+    
+  
+  // VIEWER PROFILE
+  .viewer-profile {
+    .viewer-name {
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    .org-tile {
+      flex-basis: 43%;
+    }
+    
+    .repo-tile {
+      flex-basis: 27%;
+      border: 1px solid black;
+      border-radius: 4px;
+      margin: 0.5%;
+      padding: 2%;
+    }
+  }
+}

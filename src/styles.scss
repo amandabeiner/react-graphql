@@ -27,6 +27,14 @@
   a {
     text-decoration: none;
   }
+  
+  .repo-tile {
+    flex-basis: 27%;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 0.5%;
+    padding: 2%;
+  }
 
   .btn {
     padding: 1%;
@@ -48,14 +56,6 @@
 
     .org-tile {
       flex-basis: 43%;
-    }
-    
-    .repo-tile {
-      flex-basis: 27%;
-      border: 1px solid black;
-      border-radius: 4px;
-      margin: 0.5%;
-      padding: 2%;
     }
   }
 }

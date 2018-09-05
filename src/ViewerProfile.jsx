@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Api from './Api'
 
+import RepoTile from  './RepoTile'
 import styles from './styles.scss'
 
 const FETCH_VIEWER = `
@@ -60,7 +61,6 @@ class ViewerProfile extends Component {
   }
 
   render() {
-    console.log(this.state)
     const { viewer, repositories, organizations } = this.state
     
     return (
@@ -87,13 +87,10 @@ class ViewerProfile extends Component {
           <h2>{`${viewer.name}'s repos`}</h2>
           <div className="flex-container">
             {repositories.map(r => (
-              <div className="tile repo-tile">
-                <h3><a href={r.url}>{r.name}</a></h3>
-                <p>
-                  <i className="fa fa-circle" style={{ color: `${r.primaryLanguage.color}`}} /> &nbsp;
-                  {r.primaryLanguage.name}
-                </p>
-              </div>
+              <RepoTile
+                repo={r}
+                key={r.name}
+              />
             ))}
           </div>
         </div>

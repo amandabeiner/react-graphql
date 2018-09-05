@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import Api from './Api'
 
 import styles from './styles.scss'
@@ -38,6 +39,7 @@ class OrganizationMembers extends Component {
 
     this.api = new Api()
     this.fetchMembers = this.fetchMembers.bind(this)
+    this.pushRoute    = this.pushRoute.bind(this)
   }
 
   componentDidMount() {
@@ -59,6 +61,10 @@ class OrganizationMembers extends Component {
       })
   }
 
+  pushRoute(login) {
+    this.props.history.push(`/members/${login}`)
+  }
+
   render() {
     return (
       <div className="org-members">
@@ -66,7 +72,7 @@ class OrganizationMembers extends Component {
         <p>Showing {this.state.members.length} out of {this.state.memberCount}</p>
         <div className="flex-container">
           {this.state.members.map(m => (
-            <div className="tile">
+            <div className="tile" onClick={() => { this.pushRoute(m.login)}} key={m.login}>
               <h3>{m.name}</h3>
               <img className="avatar" src={m.avatarUrl} />
               <p>{m.login}</p>
